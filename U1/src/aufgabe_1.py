@@ -46,3 +46,10 @@ def weekdays(day,month,year):
 
     return weekday[w]
 
+print('scipt gives you the weekday of the entered date')
+date = input('Enter date in form day,month,year :')
+date = date.split(',')
+day, month, year = int(date[0]), int(date[1]), int(date[2])
+
+weekday = weekdays(day, month, year)
+print(day,'.',month,'.',year,'is a', weekday)
