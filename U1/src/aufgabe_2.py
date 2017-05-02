@@ -5,39 +5,41 @@ Stefaan Hessmann
 Mark Niehues
 Jaap Pedersen
 
+Calculates different sums, choosen by the user, and prompts them.
+
 """
 
 # Definition of functions
-# The end of the sum is given is passed as an argument
+# The end of the sum is passed as an argument
 
-def sum_1(max):
+def sum_1(maximum):
     sum = 0
 
-    for i in range(1, max+1):
+    for i in range(1, maximum+1):
         sum += i
 
     return sum
 
-def sum_2(max):
+def sum_2(maximum):
     sum = 0
 
-    for i in range(1, max+1):
+    for i in range(1, maximum+1):
         sum += 1/i
 
     return sum
 
-def sum_3(max):
+def sum_3(maximum):
     sum = 0
 
-    for i in range(1, max+1):
+    for i in range(1, maximum+1):
         sum += 1/i**2
 
     return sum
 
-def sum_4(max):
+def sum_4(maximum):
     sum = 0
 
-    for i in range(1, max+1):
+    for i in range(1, maximum+1):
         sum += 1 / fac(i)
 
     return sum
