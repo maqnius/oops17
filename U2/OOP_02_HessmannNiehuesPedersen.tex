@@ -3,7 +3,7 @@
 \newcommand{\dozent}{Prof. Dr. Claudia Müller-Birn, Barry Linnert}					% <-- Names des Dozenten eintragen
 \newcommand{\tutor}{Thierry Meurers}						% <-- Name eurer Tutoriun eintragen
 \newcommand{\tutoriumNo}{10}				% <-- Nummer im KVV nachschauen
-\newcommand{\ubungNo}{01}									% <-- Nummer des Übungszettels
+\newcommand{\ubungNo}{02}									% <-- Nummer des Übungszettels
 \newcommand{\veranstaltung}{Objektorientierte Programmierung}	% <-- Name der Lehrveranstaltung eintragen
 \newcommand{\semester}{SoSe 17}						% <-- z.B. SoSo 17, WiSe 17/18
 \newcommand{\studenten}{Stefaan Hessmann, Jaap Pedersen, Mark Niehues}			% <-- Hier eure Namen eintragen
@@ -14,33 +14,38 @@
 
 
 % /////////////////////// Aufgabe 1 /////////////////////////
-\section{Aufgabe: Wochentage \hfill (10 Punkte)}
-{\itshape Berechnet den Wochentag anhand des Datums}
+\section{Aufgabe 1}
 
-\lstinputlisting[style=py,									% Style
-	caption={Beispiel: Code zu Aufgabe 1},		% Beschriftung
-	firstnumber={1},										% Start der Nummerierung
-	firstline={1}											% 1. Codezeile
-]											% letzte Codezeile
-{./src/aufgabe_1.py}
-
-
+\begin{enumerate}
+\item $complex(0): 0+0j, complex$
+\item $complex(3): 3+0j, complex$
+\item $(1+2j)*(3+0j): 3+6j, complex$
+\item $(2+3j)/5j: 0.6-0.4j, complex$
+\item $(): (), tuple$
+\item $(10): (10), tuple$
+\item $[]: [], list$
+\item $(0,3)+(1,0): (0,3,1,0), tuple$
+\item $2*[0,1]*2: [0,1,0,1,0,1], list$
+\item $[1,2,3]+[5,4]: [1,2,3,5,4], list$
+\item $2 in (1,3,3): False, bool$
+\item $2/3: 0.666.., float$
+\item $3^16: 19, int$
+\item $5|6: 7, int$
+\item $9\%7: 2, int$
+\item $-3: -3, int$
+\item $2<<4: 32, int$
+\item $2>>2: 0, int$
+\item $-2<<4: -32, int$
+\item $-2>>2: -1, int$
+\item $1//4+3//4: 0, int$
+\item $3**3: 27, int$
+\item $0.3+0.1-0.3: 0.1, float$
+\item $0.1-0.3: -0.2, float$
+\end{enumerate}
 % ///////////////////// Aufgabe 2 ///////////////////
-\section{Aufgabe: Summen berechnen \hfill (12 Punkte)}
-\lstinputlisting[style=py,									% Style
-	caption={Beispiel: Code zu Aufgabe 2},		% Beschriftung
-	firstnumber={1},										% Start der Nummerierung
-	firstline={12}											% 1. Codezeile
-]											% letzte Codezeile
-{./src/aufgabe_2.py}
+\section{Aufgabe 2}
 
-\section{Aufgabe: Multiplikation \hfill (8 Punkte)}
+\section{Aufgabe 3}
 
-\lstinputlisting[style=py,									% Style
-	caption={Beispiel: Code zu Aufgabe 3},		% Beschriftung
-	firstnumber={1},										% Start der Nummerierung
-	firstline={1}											% 1. Codezeile
-]											% letzte Codezeile
-{./src/aufgabe_3.py}
 % /////////////////////// END DOKUMENT /////////////////////////
 \end{document}
