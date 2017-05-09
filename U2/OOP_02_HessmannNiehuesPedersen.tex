@@ -14,7 +14,7 @@
 
 
 % /////////////////////// Aufgabe 1 /////////////////////////
-\section{Aufgabe 1}
+\section{Datentypen in Python}
 
 \begin{enumerate}
 \item $complex(0): 0+0j, complex$
@@ -43,9 +43,19 @@
 \item $0.1-0.3: -0.2, float$
 \end{enumerate}
 % ///////////////////// Aufgabe 2 ///////////////////
-\section{Aufgabe 2}
 
-\section{Aufgabe 3}
+\section{Anwendung von Datentypen in Python}
+\lstinputlisting[style=py,									% Style
+	caption={Output des Programms},		% Beschriftung
+	firstnumber={1},										% Start der Nummerierung
+	firstline={0}											% 1. Codezeile
+]											% letzte Codezeile
+{./src/aufgabe_2.py}
+
+\section{Dynamische Typsysteme}
+Bei der dynamischen Typisierung wird einer Variablen erst zur Laufzeit ein Datentyp zugeordnet und nicht explizit vorher im Programmcode angegeben. Das ermögicht ggf. mehr Flexibilität und das Programm bleibt in manchen fällen lauffähig obwohl ein nicht vorgeseher Datentyp verwendet wurde (und der Code ist meist besser lesbar). Andererseits fallen auch Zuweisungsfehler erst zur Laufzeit auf.
+
+Quelle: \url{https://de.wikipedia.org/wiki/Typisierung_(Informatik)}
 
 % /////////////////////// END DOKUMENT /////////////////////////
 \end{document}
