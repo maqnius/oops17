@@ -1,7 +1,7 @@
 a=[1 ,3 ,(4 ,2) ] # lege liste a an
 b=(a,a ,[1 ,5 ,4 ,3]) # lege tuple b an, b[0]=b[1]=id(a)
 print(b [1][2]) # ausgabe: (4,2)
-b [1][2]="wer"  # an der zweiten stelle von ist adresse von a,
+b [1][2]="wer"  # an der zweiten stelle von b ist adresse von a,
                 #  in der liste a wird an dritte stelle (4,2) durch "wer" ersetzt
 print(b)        # ausgabe : ([1, 3, 'wer'], [1, 3, 'wer'], [1, 5, 4, 3])
 a [2][1]        # ausgabe : 'e'
