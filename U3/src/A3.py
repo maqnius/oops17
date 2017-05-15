@@ -1,57 +1,3 @@
-def modulo(x, y):
-    """
-    A1:
-    compute x modulo y
-
-    Parameters
-    ----------
-    x : int or float
-    y : int
-
-    Returns
-    -------
-    int or float
-        x modulo y
-    """
-    while x - y >= 0:
-        x -= y
-    return x
-
-
-"""
-Aufgabe 2:
-"""
-
-
-def colatz(n):
-    """
-    A2:
-    compute the colatz-sequence starting with n
-
-    Parameters
-    ----------
-    n : int
-        colatz-sequence
-
-    Returns
-    -------
-    list of int
-        colatz-sequence
-    int
-        length of the colatz-sequence
-    """
-    colatz_sequence = [n]
-    while n != 1:
-        if n % 2 == 0:
-            n = int(n / 2)
-        else:
-            n = 3 * n + 1
-        colatz_sequence.append(n)
-        print(n)
-    return "Colatz-Folge: {}; Länge der Colatz-Folge: {}".format(colatz_sequence, len(colatz_sequence))
-
-
-
 """
 AUFGABE 3:
 """
@@ -164,17 +110,12 @@ def weekdays(day,month,year):
     return weekday[w]
 
 
-"""
-Aufgabe 4
-"""
-
-
 
 if __name__ == '__main__':
-"""    print("Enter start-date as dd.mm.yyyy:")
+    print("Enter start-date as dd.mm.yyyy:")
     start_date = input()
     print("Enter end-date as dd.mm.yyyy:")
     end_date = input()
     print("Weekdays for 13.xx.xxxx:")
-    print(weekday_counter(start_date, end_date))"""
+    print(weekday_counter(start_date, end_date))
     
