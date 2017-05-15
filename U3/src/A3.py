@@ -52,6 +52,7 @@ def weekday_counter(start_date, end_date):
         # use function from excercise 1.1    
         weekday = weekdays(date[0], date[1], date[2])
         wd_counter[weekday] += 1
+        # go to next 13.xx.xxxx
         if date[1] != 12:
             date[1] += 1
         else:
