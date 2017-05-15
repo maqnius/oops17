@@ -6,7 +6,7 @@ def colatz(n):
     Parameters
     ----------
     n : int
-        colatz-sequence
+        start element for colatz-sequence
 
     Returns
     -------
@@ -22,10 +22,11 @@ def colatz(n):
         else:
             n = 3 * n + 1
         colatz_sequence.append(n)
-        print(n)
-    return "Colatz-Folge: {}; Länge der Colatz-Folge: {}".format(colatz_sequence, len(colatz_sequence))
+    return "Colatz-Folge: {} \nLänge der Colatz-Folge: {}".format(colatz_sequence, len(colatz_sequence))
 
 
-
-
+if __name__ == '__main__':
+    print("Startelement der Colatz-Folge:")
+    n = int(input())
+    print(colatz(n))
 
