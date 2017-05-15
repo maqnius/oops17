@@ -159,7 +159,7 @@ def weekdays(day,month,year):
         if decade == 99:
             century -= 1
 
-    w = int((day + (2.6 * transformed_month - 0.2) + decade + (decade/4) + (century/4) - 2 * century) % 7)
+    w = (day + int(2.6 * transformed_month - 0.2) + decade + (decade//4) + (century//4) - 2 * century) % 7
 
     return weekday[w]
 
