@@ -15,7 +15,7 @@ def create_matrix(n, m):
     matrix = [[None]*m for i in range(n)]
     return matrix
 
-def fill_matr(matrix, size):
+def fill_matr(matrix):
     """
     Fill an empty matrix with inputs.
     
@@ -23,8 +23,6 @@ def fill_matr(matrix, size):
     ----------
     matrix : list of lists
         empty matrix
-    size : int
-        size of the matrix
     
     Retruns
     -------
@@ -60,9 +58,8 @@ def make_matrix():
     n = int(input())
     print("m = ")
     m = int(input())
-    size = n * m
     matrix = create_matrix(n, m)
-    matrix = fill_matr(matrix, size)
+    matrix = fill_matr(matrix)
     return matrix
 
 
