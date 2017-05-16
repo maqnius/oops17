@@ -12,7 +12,7 @@ def create_matrix(n, m):
     matrix : list of lists
     
     """
-    matrix = [[None]*m]*n
+    matrix = [[None]*m for i in range(n)]
     return matrix
 
 def fill_matr(matrix, size):
@@ -32,16 +32,10 @@ def fill_matr(matrix, size):
         matrix filled with values
     
     """
-    n = len(matrix[0])
-    last_elem = 0
-    while last_elem < size:
-        i = last_elem // n
-        j = last_elem % n
-        print("enter another element")
-        new_elem = int(input())
-        matrix[i][j] = new_elem
-        print(matrix)
-        last_elem += 1
+    for j in range(len(matrix)):
+        for i in range(len(matrix[0])):
+            print("enter another element")
+            matrix[j][i] = int(input()) 
     print("matrix is full")
     return matrix
     
@@ -87,23 +81,28 @@ def transpose_matrix(matrix):
         transposed matrix
     
     """
-    n = len(matrix)
-    m = len(matrix[0])
-    matrix_t = [[None] * n] * m
-    for j in range(m):
-        for i in range(n):
-            print(matrix[i][j])
+    n = len(matrix[0])
+    m = len(matrix)
+    matrix_t = create_matrix(n,m)
+    for j in range(n):
+        for i in range(m):
             matrix_t[j][i] = matrix[i][j]
     
     return matrix_t
-    
-    
+
+def print_matrix(matrix):
+    for i in range(len(matrix)):
+        for j in range(len(matrix[0])):
+            print(matrix[i][j], end='\t')
+        print('')
 
 if __name__ == '__main__':
     # Aufgabe a)
     matrix = make_matrix()
     # Aufgabe b)
-    print(matrix)
+    print("Gefüllte Matrix:")
+    print_matrix(matrix)
     # Aufgabe c)
+    print("Transponierte matrix:")
     matrix_t = transpose_matrix(matrix)
-    print(matrix_t)
+    print_matrix(matrix_t)
