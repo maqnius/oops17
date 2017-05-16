@@ -5,7 +5,9 @@ def create_matrix(n, m):
     Parameters
     ----------
     n : int
+        Rows
     m : int
+        Columns
     
     Returns
     -------
@@ -14,6 +16,7 @@ def create_matrix(n, m):
     """
     matrix = [[None]*m for i in range(n)]
     return matrix
+
 
 def fill_matr(matrix):
     """
@@ -87,11 +90,21 @@ def transpose_matrix(matrix):
     
     return matrix_t
 
+
 def print_matrix(matrix):
+    """
+    Prints a 2D List in a simple tab seperated way
+
+    Parameters
+    ----------
+    matrix : list of lists
+        matrix to be printed
+    """
     for i in range(len(matrix)):
         for j in range(len(matrix[0])):
             print(matrix[i][j], end='\t')
         print('')
+
 
 if __name__ == '__main__':
     # Aufgabe a)
