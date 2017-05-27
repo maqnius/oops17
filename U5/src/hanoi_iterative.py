@@ -14,12 +14,11 @@ def hanoi_iterative(n, source, helper, target):
     # calculate total number of moves
     tot_mov = 2**n - 1
 
+    # if numbers of discs is even interchange target and helper
     if n%2 == 0:
-        aux = target
-        trg = helper
+        [aux,trg] = [target,helper]
     else:
-        aux = helper
-        trg = target
+        [aux, trg] = [helper,target]
 
     for i in range(1,tot_mov+1):
         if i%3 == 1:
