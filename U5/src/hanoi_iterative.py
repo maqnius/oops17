@@ -19,8 +19,10 @@ def hanoi_iterative(n, source, helper, target):
         [aux,trg] = [target,helper]
     else:
         [aux, trg] = [helper,target]
+    i = 0
+    while i < tot_mov:
+        i = i + 1
 
-    for i in range(1,tot_mov+1):
         if i%3 == 1:
             legal_move(source,trg)
 
