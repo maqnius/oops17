@@ -1,0 +1,114 @@
+\input{../src/header}											% bindet Header ein (WICHTIG)
+
+\newcommand{\dozent}{Prof. Dr. Claudia Müller-Birn, Barry Linnert}					% <-- Names des Dozenten eintragen
+\newcommand{\tutor}{Thierry Meurers}						% <-- Name eurer Tutoriun eintragen
+\newcommand{\tutoriumNo}{10}				% <-- Nummer im KVV nachschauen
+\newcommand{\ubungNo}{06}									% <-- Nummer des Übungszettels
+\newcommand{\veranstaltung}{Objektorientierte Programmierung}	% <-- Name der Lehrveranstaltung eintragen
+\newcommand{\semester}{SoSe 17}						% <-- z.B. SoSo 17, WiSe 17/18
+\newcommand{\studenten}{Stefaan Hessmann, Jaap Pedersen, Mark Niehues}			% <-- Hier eure Namen eintragen
+
+% /////////////////////// BEGIN DOKUMENT /////////////////////////
+\begin{document}
+\input{../src/titlepage}										% erstellt die Titelseite
+
+
+\section{Aufgabe 1}
+
+\subsection{Beweise der Türme}
+Wir haben den Beweis etwas abgekürzt, indem wir den Code auf die hanoi Methode beschränkt haben (siehe 1.2) und analoge Elemente in den If-Bedingungen nicht behandelt haben.
+Trotzdem ist der Beweis sehr unübersichtlich, sorry besser gings nicht!
+
+\begin{lstlisting}[mathescape=true]
+$ A\ ist\ sortiert \Leftrightarrow \{\forall 0 < i < len(A)-1: A[i]<A[i+1]\lor len(A) < 2 \}$
+
+$INV = \{S[0],\ S[1],\ S[2]\ sind\ sortiert \land len(S[0]) + len(S[1]) + len(S[2]) = n \land\ kleinstes\ Element\ ist\ S[0][-1] \}$
+
+$Q = \{len(H) = len(A) = 0 \land len(Z)=n \land Z\ sortiert\}$
+
+def hanoi(n):
+
+
+  assert (n > 0)                                      
+  A = list(range(n,0,-1))
+  H = []
+  Z = []
+
+$ P = \{ n>0 \land len(H) = len(Z) = 0 \land len(A)=n \land H,\ Z,\ A\ sortiert\}$
+
+  if (n % 2 == 0):
+    
+    $ \{ P \land B \} = \{ P \land n\%2 = 0\}$
+    S = [A,H,Z]
+    $ \{ P \land B \} = \{ P \land n\%2 = 0 \land S = [A,H,Z]\}$
+	
+	$ \Rightarrow INV\ mit\ Kongruenzregel,\ da:$
+	$ len(H) = len(Z) = 0 \land len(A)=n \Rightarrow \land len(S[0]) + len(S[1]) + len(S[2]) = n \land S = [A,H,Z]$
+	$ H,\ Z,\ A\ sortiert \land S = [A,H,Z] \Rightarrow S[0],\ S[1],\ S[2]\ sind\ sortiert$
+	$ Kleinstes\ Element\ klar\ weil\ alle\ Scheiben\ in\ A\ und\ A\ ist\ sortiert$
+
+	while A != [] or H != []:
+		$\{INV \land B_{while}\} = \{INV \land (len(S[0]) > 0 \lor len(S[1]) > 0)\}$
+
+		# verschiebt kleinste Scheibe um einen Platz
+		S[1].append(S[0].pop())
+		
+		$\{S[0],\ S[1],\ S[2]\ sind\ sortiert \land len(S[0])\mathbf{-1} + len(S[1])\mathbf{+1} + len(S[2]) = n \land $
+		$kleinstes\ Element\ ist\ \mathbf{S[1][-1]} \land $
+		$ (len(S[0]) > \mathbf{-1} \lor len(S[1]) > \mathbf{1})\} \equiv Q^\ast$
+
+		# gibt es andere verschiebbare Scheiben? wenn ja, verschiebe
+		if S[0] != [] and (S[2] == [] or S[0][-1] < S[2][-1]):
+		  $\{Q^\ast \land B\} = \{Q^\ast \land len(S[0]) > 0 \land (len(S[2]) = 0 \lor S[0][-1] < S[2][-1])\}$
+		  $\Leftrightarrow \{S[0],\ S[1],\ S[2]\ sind\ sortiert \land len(S[0])-1 + len(S[1])+1 + len(S[2]) = n \land$
+		  $ kleinstes\ Element\ ist\ S[1][-1] \land len(S[0]) > 0 \land (len(S[2]) = 0 \lor S[0][-1] < S[2][-1])\}$
+
+		  S[2].append(S[0].pop())
+		  $\{S[0],\ S[1],\ S[2]\ sind\ sortiert \land len(S[0])\mathbf{-2} + len(S[1])+1 + len(S[2]\mathbf{+1}) = n \land$
+		  $kleinstes\ Element\ ist\ S[1][-1] \land len(S[0]) > \mathbf{-1} \land $
+		  $(len(S[\mathbf{2}]) = 0 \lor S[\mathbf{0}][-1] < S[\mathbf{2}][-1])\}$
+
+		  S = [S[1],S[2],S[0]]	
+		  $\{S[0],\ S[1],\ S[2]\ sind\ sortiert \land len(S[\mathbf{2}])-2 + len(S[\mathbf{0}])+1 + len(S[\mathbf{0}])+1) = n \land$
+		  $kleinstes\ Element\ ist\ S[\mathbf{0}][-1] \land len(S[\mathbf{2}]) > -1 \land $
+		  $(len(S[\mathbf{1}]) = 0 \lor S[\mathbf{2}][-1] < S[\mathbf{1}][-1])\}$
+          $\Rightarrow INV$
+          
+		elif S[2] != [] and (S[0] == [] or S[2][-1] < S[0][-1]):
+          # Analog zum oberen Beispiel mit anderen Indizes für S		  
+		  ...
+	
+	$\{INV + \lnot B_{while}\}$
+	$ = \{S[0],\ S[1],\ S[2]\ sind\ sortiert \land len(S[0]) + len(S[1]) + len(S[2]) = n \land$
+	$ kleinstes\ Element\ ist\ S[0][-1] \land len(A) = 0 \land len(H) = 0\}$
+	$ \Leftrightarrow \{S[0],\ S[1],\ S[2]\ sind\ sortiert \land len(S[0]) + len(S[1]) + len(S[2]) = n \land$
+	$ kleinstes\ Element\ ist\ S[0][-1] \land \mathbf{len(S[0]) = n \land S[0] = Z} \}$
+	
+	$ \Rightarrow Q = \{len(H) = len(A) = 0 \land len(Z)=n \land Z\ sortiert\}$
+
+  else:
+
+    # Analog zum oberen Teil, allerdings ist die Zuweisung von Z und H anders, 
+    # weshalb die Indizes von S sich unterscheiden.
+    ...
+	
+
+\end{lstlisting}
+
+\subsection{Angepasstes Code Snippet}
+\lstinputlisting[style=py,									% Style
+	caption={Angepasster Code Schnipsel, der bewiesen werden muss.},		% Beschriftung
+	firstnumber={1},										% Start der Nummerierung
+	firstline={0}											% 1. Codezeile
+]											% letzte Codezeile
+{./src/snippet.py}
+
+\subsection{Ursprünglicher Code}
+\lstinputlisting[style=py,									% Style
+	caption={Ursprünglicher Code aus dem KVV},		% Beschriftung
+	firstnumber={1},										% Start der Nummerierung
+	firstline={0}											% 1. Codezeile
+]											% letzte Codezeile
+{./src/ganz.py}
+%/////////////////////// END DOKUMENT %/////////////////////////
+\end{document}
