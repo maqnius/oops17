@@ -16,9 +16,25 @@
 \section{Aufgabe 1}
 
 \begin{description}
-\item[a)]
-Hier muss etwas stehen um den Effekt sehen zu k{\"o}nnen 
-\item[b)] und Text dahinter 
+\item[a)] Die von Python bereitgestellte sorted()-Funktion nutzt einen hybriden Sortier-Algorithmus (Mix aus Mergesort und Insertionsort) namens Timsort.
+\item[d)]
+Im Vergleich zu den anderen vergleichsbasierten Sortieralgorithmen, die in der Vorlesung besprochen wurden, erzielt Timsort immer die bestmögliche Laufzeit für best-, average- und worst-case. In der Tabelle befindet sich kein anderer Algorithmus der in den drei Fällen die beste Laufzeit liefert. Timsort ist außerdem ein stabiler Sortieralgorithmus, sodass Elemente mit gleichem Schlüssel nicht vertauscht werden. \\
+Aufgrund seiner Laufzeit und Stabilität eignet sich Timsort gut als Standard-Sortieralgorithmus für die Python Umgebung, da die Sortierung maximal schnell abläuft und zusätzlich die Sortierung von gleichen Schlüsseln beibehalten wird. Diese Eigenschaft ist besonders beim Sortieren nach mehreren Schlüsseln (beispielsweise Tabellen) notwendig.
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+Algorithmus & best & average & worst & in-place & stabil \\ \hline
+Selection Sort & $n^2$ & $n^2$ & $n^2$ & Ja & Nein \\ \hline
+Insertion Sort & $n$ &$ n^2$ &$ n^2$ & Ja & Ja \\ \hline
+Bubble Sort & $n$ & $n^2$ & $n^2$ & Ja & Ja \\ \hline
+Quick Sort & $n log(n)$ & $n log(n)$ & $n^2$ & Nein & Nein \\ \hline
+Merge Sort & $n log(n)$ & $n log(n)$ & $n log(n)$ & Nein & Ja \\ \hline
+Heap Sort & $n log(n)$ & $n log(n)$ & $n log(n)$ & Ja & Nein \\ \hline
+Timsort & $n$ & $n log(n)$ & $n log(n)$ & Nein & Ja \\ \hline
+\end{tabular}
+\caption{Vergleichsbasierte Sortieralgorithmen}
+\end{table}
 \end{description}
 
 
