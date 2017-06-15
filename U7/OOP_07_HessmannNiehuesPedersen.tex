@@ -1,0 +1,64 @@
+\input{../src/header}											% bindet Header ein (WICHTIG)
+
+\newcommand{\dozent}{Prof. Dr. Claudia Müller-Birn, Barry Linnert}					% <-- Names des Dozenten eintragen
+\newcommand{\tutor}{Thierry Meurers}						% <-- Name eurer Tutoriun eintragen
+\newcommand{\tutoriumNo}{10}				% <-- Nummer im KVV nachschauen
+\newcommand{\ubungNo}{06}									% <-- Nummer des Übungszettels
+\newcommand{\veranstaltung}{Objektorientierte Programmierung}	% <-- Name der Lehrveranstaltung eintragen
+\newcommand{\semester}{SoSe 17}						% <-- z.B. SoSo 17, WiSe 17/18
+\newcommand{\studenten}{Stefaan Hessmann, Jaap Pedersen, Mark Niehues}			% <-- Hier eure Namen eintragen
+
+% /////////////////////// BEGIN DOKUMENT /////////////////////////
+\begin{document}
+\input{../src/titlepage}										% erstellt die Titelseite
+
+
+\section{Aufgabe 1}
+
+\begin{description}
+\item[a)] Die von Python bereitgestellte sorted()-Funktion nutzt einen hybriden Sortier-Algorithmus (Mix aus Mergesort und Insertionsort) namens Timsort.
+\item[b)]
+Timsort ist ein Hybird, der auf Mergesort und Insertionsort basiert. Trotz der theoretisch günstigeren durchschnittlichen Laufzeit des Mergesort gibt es einige Fälle in denen Insertionsort praktisch schneller arbeitet und häufig Optimierungspotential für die zu sortierenden Daten, die ein effektieveres Sortieren zulassen.
+\begin{itemize}
+\item Da Mergesort erst ab einer bestimmten Listenlänge (in der Python implementierung N = 64) schneller arbeitet als Insertionsort, wird bei einem N < 64 schlicht Insertionsort angewandt.
+\item Ansonsten wird zunächst nach bereits nach sortierten oder umgekehrt sortierten Teilfolgen gesucht und diese zu sogenannten \textit{runs} zusammengefasst.
+\item Die \textit{runs} werden während des Durchsuchens bereits gemerched, um die schnellen Zugriffszeiten auf Daten, die erst kürzlich gecached wurden auszunutzen. (In der Python Implementierung werden aus praktischen Erkenntnissen immer nur 3 \textit{runs} im Cache behalten, die nach bestimmten Regeln zur Lauftzeit gemerched werden, um Stabilität und eine Begrenzung des notwendingen Caches - wenn auch nicht In-Place - beim Mergen zu garantieren.)
+\item Danach werden die \textit{runs} mittles Insertionsort auf eine bestimmte Länge \textit{minrun} aufgefüllt. \textit{Minrun} wird so gewählt, dass die Gesamtlänge der Daten geteilt durch \textit{minrun} einer Zweierpotens entspricht, da mergen von derart balancierten vorsortierten Daten am effektievsten funktioniert.
+\item Abschließend kommt es dann zum eigentlichen Mergeprozess, wobei als weitere Optimierung sgn. \textit{Galloping} angewandt wird. Hierbei werden Listeneinträge übersprungen, falls beim Vergleich zweier Teillisten häufig diesselbe Seite "gewinnt".
+\end{itemize}
+Durch diese Optimierungen ist - neben praktischen performance Vorteilen - die best-case Laufzeit des Timsort die des Insertionsort, nämlich ${\mathcal O (n)}$. 
+\item[c)]
+Über die Python Documentation der sort() Funktion stößt man auf die folgende Erklärung:
+\url{http://svn.python.org/projects/python/trunk/Objects/listsort.txt}
+\item[d)]
+Im Vergleich zu den anderen vergleichsbasierten Sortieralgorithmen, die in der Vorlesung besprochen wurden, erzielt Timsort immer die bestmögliche Laufzeit für best-, average- und worst-case. In der Tabelle befindet sich kein anderer Algorithmus der in den drei Fällen die beste Laufzeit liefert. Timsort ist außerdem ein stabiler Sortieralgorithmus, sodass Elemente mit gleichem Schlüssel nicht vertauscht werden. \\
+Aufgrund seiner Laufzeit und Stabilität eignet sich Timsort gut als Standard-Sortieralgorithmus für die Python Umgebung, da die Sortierung maximal schnell abläuft und zusätzlich die Sortierung von gleichen Schlüsseln beibehalten wird. Diese Eigenschaft ist besonders beim Sortieren nach mehreren Schlüsseln (beispielsweise Tabellen) notwendig.
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+Algorithmus & best & average & worst & in-place & stabil \\ \hline
+Selection Sort & $n^2$ & $n^2$ & $n^2$ & Ja & Nein \\ \hline
+Insertion Sort & $n$ &$ n^2$ &$ n^2$ & Ja & Ja \\ \hline
+Bubble Sort & $n$ & $n^2$ & $n^2$ & Ja & Ja \\ \hline
+Quick Sort & $n log(n)$ & $n log(n)$ & $n^2$ & Ja & Nein \\ \hline
+Merge Sort & $n log(n)$ & $n log(n)$ & $n log(n)$ & Nein & Ja \\ \hline
+Heap Sort & $n log(n)$ & $n log(n)$ & $n log(n)$ & Ja & Nein \\ \hline
+Timsort & $n$ & $n log(n)$ & $n log(n)$ & Nein & Ja \\ \hline
+\end{tabular}
+\caption{Vergleichsbasierte Sortieralgorithmen}
+\end{table}
+\end{description}
+
+\section{Aufgabe 2}
+\lstinputlisting[style=py,									% Style
+	caption={Iteratives Quicksortverfahren},		% Beschriftung
+	firstnumber={1},										% Start der Nummerierung
+	firstline={0}											% 1. Codezeile
+]											% letzte Codezeile
+{./src/quicksortIteravtive.py}
+
+
+
+%/////////////////////// END DOKUMENT %/////////////////////////
+\end{document}
