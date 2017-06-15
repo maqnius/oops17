@@ -4,3 +4,9 @@
 *.synctex.gz
 .idea/
 .DS_Store
+
+.metadata/
+.classpath
+.project
+.settings/
+bin
