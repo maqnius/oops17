@@ -16,8 +16,21 @@
 \section{Aufgabe 1}
 \begin{description}
 \item[a)] 
+$2^{\left\lfloor\log_2 n\right\rfloor} \le 2^{\log_2 n} = n$
+$\implies 2^{\left\lfloor\log_2 n\right\rfloor} \in \mathcal{O} (n) $
 \item[b)] 
+$3^{\left\lfloor\log_2 n\right\rfloor}= (2^{\log_2 3})^{\left\lfloor\log_2 n\right\rfloor} \le (2^{\log_2 3})^{\log_2 n} = n^{\log_2 3} \le n^2 $
+$\implies 3^{\left\lfloor\log_2 n\right\rfloor} \in \mathcal{O} (n^2) $
 \item[c)]
+\begin{eqnarray*}
+2^{2^{\lfloor \log_2 n \cdot \log_2 n \rfloor}}  &\le & 2^{2^{\log_2 n \cdot \log_2 n + 1}} \\
+	& = & 2^{2^{\log_2 n \cdot \log_2 n} \cdot 2} \\
+	& = & 2^{n^{\log_2 n} \cdot 2} \\
+	& = & 4^{n^{\log_2 n}} \\
+\end{eqnarray*}
+Mit $ 4^{n^{\log_2 n}} \in \Theta (4^{n^{\log_n n}}) = \Theta (4^{n}) \implies 2^{2^{\lfloor \log_2 n \cdot \log_2 n \rfloor}} \in  \mathcal{O} (4^n)$
+
+
 \end{description}
 
 \section{Aufgabe 2}
