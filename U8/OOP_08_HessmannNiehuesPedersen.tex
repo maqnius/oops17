@@ -40,7 +40,7 @@ Für alle $a > 1$ und $b > 1$ gilt $\log_a n \in \Theta (\log_b n)$. Wir haben a
 \section{Aufgabe 2}
 \begin{description}
 \item[a)]
-Intellij, wegen Bedienung aus pycharm bekannt. 
+Intellij, wegen Bedienungskonzept bereits aus pycharm bekannt. 
 \item[b)]
 Hello World Programm:
 \lstinputlisting[style=java,									% Style
@@ -79,9 +79,31 @@ Nach Ausführung also: $a = 0, b = 3, c = 2$.
 
 \section{Aufgabe 5}
 \begin{description}
-\item[a)] 
-\item[b)] 
+\item[a)]
+Debuggin Möglichkeiten:
+\begin{enumerate}
+\item Debugging mit Breakpoints
+\item Variablien Viewer während des Debuggin und Expression Evaluation
+\item Werte während des Debugging-Durchlaufs verändern
+\item Klassen während eines Durchganges neu laden (HotSwap)   
+\end{enumerate}
+\item[b)]
+Mögliche Fehler die übersehen werden
+\begin{enumerate}
+\item Logik-Fehler
+\item Unbeachtete Plattformabhängigkeiten (JRE Version)
+\item Nicht abgefangene falsche Eingaben 
+\end{enumerate} 
+
 \item[c)]
+Weiter Möglichkeiten um Fehler zu vermeiden:
+\begin{enumerate}
+\item Assertions im Code um Falsche Nutzereingaben zu erkennen
+\item Test-Driven-Developement: Zunächst Testaufrufe Programmieren, die einzelene Code Fragmente auf das gewünschte Verhalten hin testen
+\item Korrektheit formell testen (z.B. Hoare-Kalkül)
+\item Testen, testen, testen..
+\end{enumerate}
+
 \end{description}
 
 
