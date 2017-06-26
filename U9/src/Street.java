@@ -17,7 +17,7 @@ public class Street {
   public void setYear(int theYear){
     this.year = theYear;
   }
-  
+
   public void buildHouse(int houseNumber){
     if (this.houses[houseNumber] != null){
       this.houses[houseNumber] = new House(houseNumber, this.year);
@@ -28,12 +28,12 @@ public class Street {
     }
   }
 
-  public void breakHouses(int theYear){
+  public void breakHouses(){
     for (int houseNumber = 0; houseNumber < this.totalProperty; houseNumber++){
       if (this.houses[houseNumber] == null){
         continue;
       }
-      this.houses[houseNumber].updateCanBreak(theYear);
+      this.houses[houseNumber].updateCanBreak(this.year);
       if (this.houses[houseNumber].canBreak){
           this.houses[houseNumber] = null;
           this.numberOfHouses--;
@@ -74,5 +74,19 @@ public class Street {
         System.out.println("No more rooms and no free properties for new houses. Move to another street!");
       }
     }
+  }
+
+  private int findOccupiedHouseWithEmptyRoom(){
+    for (int houseNumber = 0; houseNumber < this.totalProperty; houseNumber++){
+      if (this.houses[houseNumber] != null &
+      this.houses[houseNumber].getUnoccupiedRooms() > 0){
+        return houseNumber;
+      }
+    }
+    return -1;
+  }
+  public void familyMovesAway(){
+    int houseNumber = this.findOccupiedHouseWithEmptyRoom();
+    this.houses[houseNumber].unoccupyRoom();
   }
 }
