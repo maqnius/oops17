@@ -7,8 +7,8 @@ public class House{
   int houseNumber;
   boolean canBreak;
   // Constructor
-  public House(int houseNumber){
-    this.buildYear = 1960;
+  public House(int houseNumber, int buildYear){
+    this.buildYear = buildYear;
     this.lifeSpan = 60;
     this.totalRooms = 5;
     this.occupiedRooms = 0;
@@ -25,15 +25,14 @@ public class House{
   public int getUnoccupiedRooms(){
     return this.totalRooms - this.occupiedRooms;
   }
-  public void updateCanBreak(){
-    if (this.buildYear-this.lifeSpan < 0 & this.occupiedRooms == 0){
+  public void updateCanBreak(int theYear){
+    if (this.buildYear-theYear < 0 & this.occupiedRooms == 0){
       this.canBreak = true;
     }
   }
   public void unoccupyRoom(){
     if (this.occupiedRooms > 0){
       this.occupiedRooms--;
-      this.unoccupyRoom++;
     }
     else {System.out.println("there is no occupied room in this house");
     }
@@ -41,9 +40,8 @@ public class House{
   public void occupyRoom(){
     if (this.occupiedRooms < this.totalRooms){
       this.occupiedRooms++;
-      this.unoccupiedRooms--;
     }
-    else {"all rooms are allready occupied!"}
+    else {System.out.println("all rooms are allready occupied!");}
   }
 
 }
