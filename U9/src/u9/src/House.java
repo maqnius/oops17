@@ -66,11 +66,7 @@ public class House {
      * @return True if house is empty, False if not
      */
     public boolean isEmpty() {
-        if (occupiedRooms == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return occupiedRooms == 0;
     }
 
     /**
@@ -78,11 +74,7 @@ public class House {
      * @return True if house is older than its lifespan
      */
     public boolean isOverdue(int currentYear) {
-        if ((currentYear - buildYear) >= lifeSpan) {
-            return true;
-        } else {
-            return false;
-        }
+        return (currentYear - buildYear) >= lifeSpan;
     }
 
     /**
