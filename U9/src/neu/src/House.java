@@ -62,4 +62,8 @@ public class House {
             return false;
         }
     }
+
+    public int getOccupiedRooms() {
+        return occupiedRooms;
+    }
 }

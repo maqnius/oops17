@@ -9,7 +9,6 @@ public class Street {
 
     /**
      * Initialize empty Street with space for MaxHouse houses
-     * @param buildYear The year the Street was build
      * @param MaxHouses Maximum number houses
      */
     public Street(int MaxHouses) {
@@ -43,11 +42,10 @@ public class Street {
                 return true;
             }
         }
-
         return false;
     }
 
-    public boolean buildNewHouse(int buildYear, int totalRooms, int lifeSpan){
+    public void buildNewHouse(int buildYear, int totalRooms, int lifeSpan){
         // Look for free slot
         for(House h: houses){
             if(h.equals(null)){
@@ -70,27 +68,33 @@ public class Street {
         }
     }
 
+    /**
+     * Creates print of the street
+     * @param currentYear
+     */
     public void printStreet(int currentYear){
         System.out.println("");
         for (House h: houses) {
-            if (!h.equals()) {
-                System.out.print(street.getHouses()[property].getOccupiedRooms());
+            if (!h.equals(null)) {
+                System.out.print(h.getOccupiedRooms());
             }
-            if (street.getHouses()[property] == null) {
+            else {
                 System.out.print("X");
             }
             System.out.print("   ");
         }
         System.out.println("");
-        for (int property = 0; property < size; property++) {
+        for (int i = 0; i < houses.length; i++) {
             System.out.print("----");
         }
         System.out.println("");
-        for (int property = 0; property < size; property++) {
+
+        for (int i = 0; i < houses.length; i++) {
             System.out.print(" - -");
         }
         System.out.println("");
-        for (int property = 0; property < size; property++) {
+
+        for (int i = 0; i < houses.length; i++) {
             System.out.print("----");
         }
     }
