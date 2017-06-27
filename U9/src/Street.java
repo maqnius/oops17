@@ -32,7 +32,8 @@ public class Street {
     }
 
     // Constructor
-    public Street(int totalProperty) {
+    public Street(int totalProperty, int year) {
+        this.year = year;
         this.numberOfHouses = 1;
         this.totalProperty = totalProperty;
         this.houses = new House[this.totalProperty];
@@ -125,7 +126,7 @@ public class Street {
     public void familyMovesAway() {
         int houseNumber = this.findOccupiedHouse();
         if (houseNumber == -1){
-            System.out.println("Nobody lives here you stupid F**K!");
+            System.out.println("Nobody lives here...");
         } else{this.houses[houseNumber].unoccupyRoom();}
 
     }

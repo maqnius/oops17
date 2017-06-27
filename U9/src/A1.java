@@ -7,10 +7,11 @@ public class A1 {
         Scanner reader = new Scanner(System.in);
         boolean goOn = true;
         int year = 2017;
-        Street street = new Street(10);
+        Street street = new Street(10, year);
         showStreet(street);
         System.out.println(year);
         while (goOn == true) {
+            year++;
             street.setYear(year);
             System.out.println("How many families are moving out?: ");
             int movingOut = reader.nextInt();
@@ -24,7 +25,7 @@ public class A1 {
             for (int family = 0; family < movingIn; family++) {
                 street.newFamilyMovesToStreet();
             }
-            year++;
+
             showStreet(street);
             System.out.println(year);
             System.out.println("\nType 'END' to stop the simulation. Press 'ENTER' to continue to the next year.");
