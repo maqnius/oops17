@@ -28,7 +28,7 @@ public class House {
     public House(int houseNumber, int buildYear) {
         this.buildYear = buildYear;
         this.houseNumber = houseNumber;
-        lifeSpan = 60;
+        lifeSpan = 5;
         totalRooms = 5;
         occupiedRooms = 0;
         canBreak = false;
@@ -64,7 +64,7 @@ public class House {
     }
 
     public void updateCanBreak(int theYear) {
-        if (buildYear - theYear < 0 & occupiedRooms == 0) {
+        if (theYear - buildYear > lifeSpan && occupiedRooms == 0) {
             canBreak = true;
         }
     }
