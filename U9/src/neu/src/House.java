@@ -56,7 +56,7 @@ public class House {
     }
 
     public boolean isOverdue(int currentYear){
-        if((currentYear - buildYear) > lifeSpan) {
+        if((currentYear - buildYear) >= lifeSpan) {
             return true;
         } else {
             return false;
