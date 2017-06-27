@@ -16,15 +16,40 @@ public class Street {
         this.MaxHouses = MaxHouses;
     }
 
+    public void moveOut(int numberOfPeople) {
+        for(int i = 0; i < numberOfPeople; i++){
+            if(!moveOut()){
+                // Street empty
+                System.out.println("Street empty.");
+                break;
+                }
+            }
+        }
+
+    public boolean moveOut(){
+        for (House h: houses){
+            if(!h.equals(null)){
+                if(h.moveOutHouse())
+                    return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * Several people want to move in
      * @param numberOfPeople
      * @return
      */
-    public boolean moveIn(int numberOfPeople){
+    public boolean moveIn(int numberOfPeople, int currentYear){
         for(int i = 0; i < numberOfPeople; i++){
             if(!moveIn()){
-                return false;
+                // Try to build new House
+                if(!buildNewHouse(currentYear)){
+                    // Failed, street full
+                    return false;
+                }
+                i--; // Decrease by one because nothing was done this time
             }
         }
         // Everyone could move in
@@ -45,7 +70,7 @@ public class Street {
         return false;
     }
 
-    public void buildNewHouse(int buildYear, int totalRooms, int lifeSpan){
+    public boolean buildNewHouse(int buildYear, int totalRooms, int lifeSpan){
         // Look for free slot
         for(House h: houses){
             if(h.equals(null)){
@@ -55,6 +80,10 @@ public class Street {
         }
         // Street full
         return false;
+    }
+
+    public boolean buildNewHouse(int buildYear) {
+        return buildNewHouse(buildYear, 10, 3);
     }
 
     /**
