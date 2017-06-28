@@ -9,7 +9,8 @@ import java.util.ArrayList;
 public class A2 {
     public static void main(String[] args) {
 
-        int n = (int) Math.pow(10,3);
+        //int n = (int) Math.pow(10,6);
+        int[] n = {(int) Math.pow(10,2), (int) Math.pow(10,4), (int) Math.pow(10,6), (int) Math.pow(10,8)};
         double real_val = (Math.PI)*(Math.PI)/6.0;
         ArrayList<String> variante = new ArrayList<String>();
         variante.add("a");
@@ -20,21 +21,36 @@ public class A2 {
         variante.add("f");
         variante.add("g");
         variante.add("h");
+        for (int b: n) {
+            
+        System.out.println("\\begin{table}[ht] \n \\begin{tabular}{l | l | l} \n ");
+        System.out.println("Variante & Endwert & Abweichung vom Grenzwert \\\\ \n \\hline \n");
         for (String i:variante){
-            double sum = Summe(n, i);
-            System.out.println(i+")");
-            System.out.println(sum);
-            double diff_real = real_val-sum;
-            System.out.println("Abweichung zum Grenzwert: "+ diff_real);
+            try {
+                double sum = Summe(b, i);
+                double diff_real = real_val-sum;
+                System.out.print(i+") &");
+            System.out.print(sum);
+            
+            System.out.print("&"+ diff_real+ "\\\\ \n");
+            } catch (Exception e) {
+                String sum = "Abgebrochen";
+                String diff_real = "Abgebrochen";
+                System.out.print(i+") &");
+            System.out.print(sum);
+            
+            System.out.print("&"+ diff_real+ "\\\\ \n");
+            }
         }
-
+        System.out.println("\\end{tabular} \n \\caption{n = "+b+"} \n \\end{table}");
+            System.out.println("\n\n");
+}
 
     }
 
     static double Summe(int n, String variante) {
         double s = 0.0;
         float eins = 1;
-
         switch (variante){
             case "a":
                 for(int i=1;i<=n;i++){
@@ -42,7 +58,7 @@ public class A2 {
                 }
                 break;
             case "b":
-                for(long i=1;i<=n;i++){
+                for(int i=1;i<=n;i++){
                     s += 1/(i*i);
                 }
                 break;

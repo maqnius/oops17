@@ -38,6 +38,92 @@
 
 \section{Aufgabe 2}
 
+\subsection{Beobachtungen}
+\begin{itemize}
+\item a) ist immer $1.0$, da der erste Summand $1.0$ ist und die darauf folgenden auf 0 gerundet werden durch die division zweier integers.
+\item die Summe für b) ist erst $1.0$ und ab $n = 10^6$ erfolgt ein Abbruch, da der Wertebereich für Integers in Java zyklisch implementiert ist, sodass irgendwann $i*i=0$ ist und die Division durch $0$ für Integer nicht definiert ist.
+\item Im Gegensatz dazu ist die Division durch $0$ für double definiert als \texttt{infinity}, sodass ab $n = 10^6$ im Falle d) und f) das Ergebnis \texttt{infinity} ist.
+\item Die anderen Varianten funktionieren, aber weisen zum Teil leicht unterschiedliche Abweichungen auf.
+\end{itemize}
+
+\subsection{Ergebnisse der verschiedenen Durchläufe}
+\begin{table}[ht] 
+ \begin{tabular}{l | l | l} 
+ 
+Variante & Endwert & Abweichung vom Grenzwert \\ 
+ \hline 
+
+a) &1.0&0.6449340668482264\\ 
+b) &1.0&0.6449340668482264\\ 
+c) &1.6349839001848923&0.009950166663334148\\ 
+d) &1.6349839001848923&0.009950166663334148\\ 
+e) &1.6349839001848923&0.009950166663334148\\ 
+f) &1.6349839001848923&0.009950166663334148\\ 
+g) &1.6349839032409363&0.009950163607290063\\ 
+h) &1.6349839001848923&0.009950166663334148\\ 
+\end{tabular} 
+ \caption{n = 100} 
+ \end{table}
+
+
+
+\begin{table}[ht] 
+ \begin{tabular}{l | l | l} 
+ 
+Variante & Endwert & Abweichung vom Grenzwert \\ 
+ \hline 
+
+a) &1.0&0.6449340668482264\\ 
+b) &1.0&0.6449340668482264\\ 
+c) &1.6448340718480652&9.999500016122376E-5\\ 
+d) &1.6448340718480652&9.999500016122376E-5\\ 
+e) &1.6448340718480652&9.999500016122376E-5\\ 
+f) &1.6448340718480652&9.999500016122376E-5\\ 
+g) &1.644834074928367&9.999191985943234E-5\\ 
+h) &1.6448340718480652&9.999500016122376E-5\\ 
+\end{tabular} 
+ \caption{n = 10000} 
+ \end{table}
+
+
+
+\begin{table}[ht] 
+ \begin{tabular}{l | l | l} 
+ 
+Variante & Endwert & Abweichung vom Grenzwert \\ 
+ \hline 
+
+a) &1.0&0.6449340668482264\\ 
+b) &Abgebrochen&Abgebrochen\\ 
+c) &1.64493306684877&9.999994563525405E-7\\ 
+d) &Infinity&-Infinity\\ 
+e) &1.64493306684877&9.999994563525405E-7\\ 
+f) &Infinity&-Infinity\\ 
+g) &1.6449330699290232&9.969192031888952E-7\\ 
+h) &1.64493306684877&9.999994563525405E-7\\ 
+\end{tabular} 
+ \caption{n = 1000000} 
+ \end{table}
+
+
+
+\begin{table}[ht] 
+ \begin{tabular}{l | l | l} 
+ 
+Variante & Endwert & Abweichung vom Grenzwert \\ 
+ \hline 
+
+a) &1.0&0.6449340668482264\\ 
+b) &Abgebrochen&Abgebrochen\\ 
+c) &1.644934057834575&9.013651380840315E-9\\ 
+d) &Infinity&-Infinity\\ 
+e) &1.644934057834575&9.013651380840315E-9\\ 
+f) &Infinity&-Infinity\\ 
+g) &1.6449340609148324&5.933393998347469E-9\\ 
+h) &1.644934057834575&9.013651380840315E-9\\ 
+\end{tabular} 
+ \caption{n = 100000000} 
+ \end{table}
 
 %/////////////////////// END DOKUMENT %/////////////////////////
 \end{document}
