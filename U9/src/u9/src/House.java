@@ -1,4 +1,3 @@
-package u9.src;
 
 /**
  * Class represents a house that can hold a specific amount of people and

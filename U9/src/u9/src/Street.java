@@ -1,4 +1,3 @@
-package u9.src;
 
 /**
  * The Street class holds houses and deals with incoming and leaving
