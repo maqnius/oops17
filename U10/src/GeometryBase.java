@@ -2,7 +2,7 @@
  * Created by jaap on 03.07.17.
  */
 public abstract class GeometryBase {
-    private String name;
+    public String name;
 
     public void setName(String name){
         this.name = name;

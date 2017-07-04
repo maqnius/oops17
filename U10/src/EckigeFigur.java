@@ -3,7 +3,7 @@
  */
 public abstract class EckigeFigur extends GeometryBase {
     private int n_deges;
-    private float[][] coordinates;
+    public float[][] coordinates;
 
     public EckigeFigur(float[][] coordinates) {
         this.coordinates = coordinates;

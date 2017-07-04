@@ -7,12 +7,4 @@ public class Kreis extends RundeFigur {
         super(mittelpunkt, radius);
     }
 
-    public void bewegefigur(float[] neuermittelpunkt) {
-        setMittelpunkt(neuermittelpunkt);
-    }
-
-    public boolean ueberlapp(GeometryBase figure) {
-        // TO DO
-        return true;
-    }
 }

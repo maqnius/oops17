@@ -6,8 +6,4 @@ public class Dreieck extends EckigeFigur {
         super(coordinates);
     }
 
-    @Override
-    boolean ueberlapp(GeometryBase figure) {
-        return false;
-    }
 }
