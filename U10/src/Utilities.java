@@ -27,6 +27,27 @@ public final class Utilities {
         return false;
     }
 
+    private static float[] linieSchneidetLinie(float[][] linieA, float[][] linieB){
+        float[] mUndB1 = mUndB(linieA);
+        float[] mUndB2 = mUndB(linieB);
+        float m1 = mUndB1[0];
+        float b1 = mUndB1[1];
+        float m2 = mUndB2[0];
+        float b2 = mUndB2[1];
+        float xSchnitt = (b2 - b1)/(m1 - m2);
+        float ySchnitt = m1*xSchnitt + b1;
+        float[] Schnittpunkt = {xSchnitt, ySchnitt};
+
+
+        return Schnittpunkt;
+    }
+
+    private static float[] mUndB(float[][] linie){
+        float m = (linie[1][1]-linie[0][1])/(linie[1][0]-linie[0][0]);
+        float b = (linie[0][1] - m*linie[0][0]);
+        float[] mUndB = {m, b};
+        return mUndB;
+    }
 
     private static boolean schneidetKreisLinie(RundeFigur A, float[][] linie){
         float[] strecke = {linie[1][0]-linie[0][0], linie[1][1]-linie[0][1]};
