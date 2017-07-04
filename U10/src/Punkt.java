@@ -8,6 +8,7 @@ public class Punkt extends RundeFigur {
     public void bewegefigur(float[] neuermittelpunkt){
         setMittelpunkt(neuermittelpunkt);
     }
+
     public boolean ueberlapp(GeometryBase figure){
         // TO DO
         return true;
